@@ -1,0 +1,9 @@
+name: TestPlugin
+version: ${project.version}
+main: com.itsmatthewp.test.Main
+api-version: 1.18
+authors: [ ItsMatthewP ]
+description: Cool Test Plugin
+commands:
+  test:
+    description: Test Command
