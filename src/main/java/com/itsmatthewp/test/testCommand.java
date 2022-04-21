@@ -22,7 +22,7 @@ public class testCommand implements CommandExecutor {
         Cuboid cuboid = null;
 
         if(sender instanceof Player) {
-            player.sendMessage(ChatColor.RED + "Please Provide An Argument.");
+            //player.sendMessage(ChatColor.RED + "Please Provide An Argument.");
             if (args[0].equalsIgnoreCase("create") && args[1] == null) {
                     player.sendMessage(ChatColor.RED + "Incorrect Usage! Argument 1 Empty.");
                 }
@@ -34,16 +34,17 @@ public class testCommand implements CommandExecutor {
                     l2 = player.getTargetBlockExact(100).getLocation();
                     player.sendMessage("Position 2 Created!");
                 }
-                else if (args[1].equalsIgnoreCase("cuboid") && l1 != null) {
+                
+                if (args[1].equalsIgnoreCase("cuboid") && l1 != null) {
                     cuboid = new Cuboid(l1, l2);
                     player.sendMessage("Region Created!");
-                }
-                else if (args[0].equalsIgnoreCase("fill") && l1 != null) {
+                    
+                if (args[0].equalsIgnoreCase("fill") && l1 != null) {
                     for (Block blocks: cuboid.getBlocks()) {
                         blocks.setType(Material.DIAMOND_BLOCK);
                     }
                     player.sendMessage("Region Filled!");
-                }
+                } 
         }
         else {
             player.sendMessage(ChatColor.RED + "Incorrect Usage! This Command Is In-Game Only.");
